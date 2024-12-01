@@ -27,6 +27,7 @@ void SparseSet::insert(int val)
 
 void SparseSet::erase(int val)
 {
+	//TODO : sort it
 	if (search(val) == -1)throw std::invalid_argument("Unknown Value");
 	int temp = dence[currnum];
 	dence[sparse[val]] = temp;
