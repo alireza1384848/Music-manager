@@ -17,6 +17,9 @@ public:
 	void Radixsort(suffix* suffixes,int size);
 	void countsort(suffix* suffixes, int size, int rank);
 	int find(string target);
+	int occurance(string target);
+	int lowerbond(string target);
+	int higherbond(string target);
 	void print();
 
 

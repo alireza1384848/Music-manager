@@ -8,6 +8,8 @@ public:
 	void erase(int val);
 	int search(int tar);
 	void clear();
+	void sort();
+	void print();
 private:
 	int* dence;
 	int* sparse;

@@ -1,5 +1,6 @@
 #include "Set.h"
 #include<exception>
+#include"merge sort.h"
 using namespace std;
 SparseSet::SparseSet(int maxval, int capacity)
 {
@@ -29,11 +30,13 @@ void SparseSet::erase(int val)
 {
 	//TODO : sort it
 	if (search(val) == -1)throw std::invalid_argument("Unknown Value");
-	int temp = dence[currnum];
+	int temp = dence[currnum-1];
 	dence[sparse[val]] = temp;
 	sparse[temp] = sparse[val];
 	currnum --;
+	this->sort();
 }
+
 
 int SparseSet::search(int tar)
 {
@@ -46,4 +49,23 @@ int SparseSet::search(int tar)
 void SparseSet::clear()
 {
 	currnum = 0;
+}
+
+void SparseSet::sort()
+{
+	Mergesort(dence, 0, currnum-1, currnum-1);
+
+	for(int i =0 ; i< currnum; i++)
+	{
+		sparse[dence[i]] = i;
+	}
+}
+
+void SparseSet::print()
+{
+	for (size_t i = 0; i < currnum; i++)
+	{
+		cout << i << "." << dence[i]<<endl;
+	}
+
 }

@@ -1,11 +1,13 @@
-
+#include<string>
 #include"Set.h"
+#include"Musician.h"
 #include"Queue.h"
 #include"SuffixArray.h"
+using namespace std;
 int main()
 {
-	SparseSet a(10, 3);
-	SuffixArray my("bananasalammanazibronkarpreyrfrefere");
-	my.print();
-	cout << my.find("bro");
+	SuffixArray a("ki migere jato    man man man manjatojatojatojato");
+	a.print();
+	cout << a.occurance(" man ");
+
 }
