@@ -159,7 +159,7 @@ void Linkedlist<T>::erase(int ind)
 	template<typename T>
 	T& Linkedlist<T>::operator[](int ind)
 	{
-
+		if (ind >= this->size()) throw out_of_range("Id Don't Exist!!");
 		Node<T>* temp = head;
 		for (size_t i = 0; i < ind; i++)
 		{

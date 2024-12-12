@@ -1,13 +1,14 @@
 #include<string>
-#include"Set.h"
-#include"Musician.h"
-#include"Queue.h"
-#include"SuffixArray.h"
+
+#include"Cmandline.h"
 using namespace std;
 int main()
 {
-	SuffixArray a("ki migere jato    man man man manjatojatojatojato");
-	a.print();
-	cout << a.occurance(" man ");
-
+	Cmandline a;
+	while (1)
+	{
+	a.proccescommand();
+	}
+	
+	
 }

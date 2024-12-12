@@ -15,6 +15,10 @@ private:
 public:
 	Music(string name, string text, int year);
 	int id();
+	int year();
+	string getName();
+	int findword(string word);
+	int countword(string word);
 	void print();
 };
 

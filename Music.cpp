@@ -14,6 +14,24 @@ int Music::id()
 {
 	return Id;
 }
+string Music::getName()
+{
+	return name;
+}
+
+int Music::year()
+{
+	return this->Pub_year;
+}
+
+int Music::findword(string word)
+{
+	return suffarr.find(word);
+}
+int Music::countword(string word)
+{
+	return suffarr.occurance(word);
+}
 void Music::print()
 {
 	/// print arr
