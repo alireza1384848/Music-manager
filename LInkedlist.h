@@ -35,6 +35,7 @@ public:
 	void pop_back();
 	int size();
 	void erase(int ind);
+	void clear();
 	T& operator[](int ind);
 private:
 	Node<T>* head = nullptr;
@@ -154,6 +155,22 @@ void Linkedlist<T>::erase(int ind)
 	temp->prev->next = temp->next;
 	temp->next->prev = temp->prev;
 	delete temp;
+}
+
+template<typename T>
+inline void Linkedlist<T>::clear()
+{
+	Node<T>* temp = head;
+	Node<T>* temp1 = nullptr;
+	for(int i=0;i<Size;i++)
+	{
+		if(temp->next!= nullptr)
+		temp1 = temp->next;
+		delete temp;
+		temp = temp1;
+	}
+	head = nullptr;
+	tail = nullptr;
 }
 
 	template<typename T>

@@ -48,7 +48,7 @@ string* getText() {
 string* Cmandline::getcommand()
 {
 	string* cmd = new string[3];
-	cout << "Enter Your command:";
+	cout<<endl << "Enter Your command:";
 	cin >> cmd[0];
 	//2
 	if(cmd[0]=="delm"||cmd[0]=="delmp"|| cmd[0] == "addmp" || cmd[0] == "searchm")
@@ -84,7 +84,7 @@ string* Cmandline::getcommand()
 		return cmd;
 	}
 	//0
-	else if(cmd[0] == "pop")
+	else if(cmd[0] == "pop" || cmd[0] == "exit")
 	{
 		return cmd;
 	}
@@ -108,7 +108,7 @@ void Cmandline::proccescommand()
 			string name = cmd[1];
 			if (name != "") {
 				Musicians->insert(name.substr(1));
-				cout << "Successfully Added!" << endl;
+				cout << "Successfully Added!"<< "  ID : "<<Musicians->lastid() << endl;
 			}
 			else
 			{
@@ -157,6 +157,9 @@ void Cmandline::proccescommand()
 	{
 		delete Musicians;
 		Musicians = new SparseSet(1000, 1000);
+		Musics.clear();
+		AllPlaylist.clear();
+		playQueue.clear();
 		cout << "Successfully Cleared!" << endl;
 	}
 	else if (cmd[0] == "findm")
@@ -210,7 +213,7 @@ void Cmandline::proccescommand()
 			int year = stoi(Syear);
 			int id = stoi(Sid);
 			Musics.push_back(Musicians->Addmusic(id, name, text, year));
-			cout << "Successfully Added!"<<"  ID : "<<Musics.front()->id() << endl;
+			cout << "Successfully Added!"<<"  ID : "<<Musics.back()->id() << endl;
 		}
 		catch (const std::exception& e)
 		{
@@ -259,7 +262,7 @@ void Cmandline::proccescommand()
 			if (name != "") {
 				SparcePlaylist* temp = new SparcePlaylist(name);
 				AllPlaylist.push_back(temp);
-				cout << "Successfully Added!" << endl;
+				cout << "Successfully Added!" << "  ID : " << AllPlaylist.back()->getid() << endl;
 			}
 			else
 			{
@@ -365,25 +368,42 @@ void Cmandline::proccescommand()
 			string sid = cmd[1];
 			int id = stoi(sid);
 			playQueue.inqueue(AllPlaylist[findplayid(id)]);
+			cout << "successfuly added!!"<<endl;
+			//playQueue.Front()->Print();
 		}
 		catch (const std::exception& e)
 		{
 			cout << "Something went wrong tip:" << e.what() << endl;
 		}
-		playQueue.Front()->Print();
+		
 		}
 	else if (cmd[0] == "pop")
 	{
 		try
 		{
 		playQueue.dequeue();
+//		playQueue.Front()->Print();
 		}
 		catch (const std::exception&e)
 		{
 			cout << "Error : " << e.what();
 		}
-		playQueue.Front()->Print();
 	}
+	else if (cmd[0] == "exit")
+	{
+		try
+		{
+			exit(0);
+		}
+		catch (const std::exception& e)
+		{
+			cout << "Error : " << e.what();
+		}
+		}
+	else
+	{
+		cout << "Command Not Found!!"<<endl;
+ }
 }
 //Todo: make it binery search
 Music* Cmandline::findMusic(int id)

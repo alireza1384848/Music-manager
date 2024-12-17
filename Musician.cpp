@@ -30,15 +30,16 @@ void Musician::deleteMusic(int id)
 
 bool Musician::findMusic(string name)
 {
+	bool canfind = false;
 	for (size_t i = 0; i < musics->size(); i++)
 	{
 		if ((*musics)[i].getName() == name)
 		{
 			(*musics)[i].print();
-			return true;
+			canfind= true;
 		}
 	}
-	return false;
+	return canfind;
 
 }
 

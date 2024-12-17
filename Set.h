@@ -14,6 +14,7 @@ public:
 	void findword(int musicionid, int musicid, string text);
 	void countword(int musicionid, int musicid, string text);
 	void clear();//TODO : not impelemnted
+	int lastid();
 	void print();
 private:
 	Musician ** dence;

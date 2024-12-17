@@ -9,6 +9,7 @@ public:
 	Queue(int capacity);
 	void dequeue();
 	void inqueue(T val);
+	void clear();
 	bool IsEmpty();
 	T& Front();
 
@@ -63,6 +64,13 @@ void Queue<T>::inqueue(T val)
 	queue[rear] = val;
 
 
+}
+
+template<typename T>
+inline void Queue<T>::clear()
+{
+	delete[] queue;
+	queue = new T[capacity];
 }
 
 template<typename T>

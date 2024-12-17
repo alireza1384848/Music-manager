@@ -15,7 +15,7 @@ SparseSet::SparseSet(int maxval, int capacity)
 SparseSet::~SparseSet()
 {
 	delete[] this->dence;
-	delete[] this->sparse;
+	//delete this->sparse;
 }
 
 void SparseSet::insert(string name)
@@ -112,6 +112,11 @@ void SparseSet::countword(int musicionid, int musicid, string text)
 void SparseSet::clear()
 {
 	currnum = 0;
+}
+
+int SparseSet::lastid()
+{
+	return dence[currnum-1]->getId();
 }
 
 void SparseSet::print()
